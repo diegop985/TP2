@@ -4,6 +4,16 @@
   padding: 0;
 }
 
+@font-face {
+  font-family: "SancoaleSoftened-Regular";
+  src: url("./fonts/SancoaleSoftened-Regular.otf");
+}
+
+@font-face {
+  font-family: "SancoaleSoftened-Medium";
+  src: url("./fonts/SancoaleSoftened-Medium.otf");
+}
+
 body {
   background-color: #04293a;
   height: 100vh;
@@ -25,4 +35,12 @@ body {
   position: relative;
   top: 50px;
   left: 70px;
+}
+
+.regular {
+  font-family: "SancoaleSoftened-Regular";
+}
+
+.medium {
+  font-family: "SancoaleSoftened-Medium";
 }
