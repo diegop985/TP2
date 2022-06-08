@@ -1,0 +1,28 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #04293a;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+}
+
+.demo-wrapper {
+  height: 50%;
+  width: 70%;
+  margin: auto;
+  background-color: #064663;
+}
+
+.square {
+  background-color: #c84b31;
+  width: 40px;
+  height: 40px;
+  position: relative;
+  top: 50px;
+  left: 70px;
+}
