@@ -11,9 +11,9 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
   </head>
-  <body>
+  <body class="app-container">
     <!-- Entrance screen -->
-    <section class="init-screen">
+    <section id="section_01" class="init-screen active">
       <div class="img-container"></div>
       <div class="radial-background"></div>
       <p class="initscreen-text1">
@@ -39,6 +39,7 @@
         src="./media/entrance-screen/arrow-right-square.png"
         alt=""
       />
+      <a href="#" navigate-to="#section_02">Holaaa vamo pa la dersha</a>
       <img
         class="poligono poligono-1"
         src="./media/entrance-screen/Polígono 1.png"
@@ -102,7 +103,9 @@
     </section>
 
     <!-- Transition helper -->
-    <section class="white-transition"></section>
+    <section id="section_02" class="white-transition">
+      <a href="#" navigate-to="#section_01"></a>
+    </section>
 
     <!-- First Screen -->
     <section class="first-screen">
