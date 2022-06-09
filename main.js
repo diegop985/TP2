@@ -11,20 +11,79 @@ let stage = '#section_01' /* screen on stage/ 01 per default */
 
 /* Methos / Functions */
 
-const navigateTo = (id) => {
+// const navigateTo = (id) => {
 
-    animate_ToSection(id)
+//     animate_ToSection(id)
 
-    animation.finished.then(()=>{
-        stage = id
-    })
-}
+//     animation.finished.then(()=>{
+//         stage = id
+//     })
+// }
 
-const animate_ToSection = id => {
+// const animate_ToSection = id => {
+
+//     /* Vars */
+//     const from = document.querySelector(stage)
+//     const to = document.querySelector(id)
+
+//     /* sets */
+//     anime.set([to], {
+//         visibility: "visible",
+//         translateX: "100%",
+//         opacity: 1
+//     })
+
+    
+//     /* Anime */
+
+//     animation = anime.timeline({
+//         easing: "easeInOutSine",
+
+//         /* Callback */
+//         complete() {
+//             anime.set([from], {
+//                 visibility: "hidden",
+//                 opacity: 0
+//             })
+//         }
+//     })
+
+//     /* Animation  */
+
+//     animation
+//         .add({
+//             targets: [from],
+//             translateX: "-100%",
+//             opacity: 0,
+//             delay: 1000
+//         })
+//         .add({
+//             targets: [to],
+//             translateX: "0%",
+//             opacity: 1
+//         }, "-=500")       
+// }
+    
+    /* Eventos */
+
+
+let animation_entrance_elipse2 = anime({
+
+    targets: ".elipse-container",
+    duration: 4000,
+    direction: "normal",
+    loop: "false",
+    easing: "easeInOutSine",
+    scaleX: [1,100],
+    scaleY: [1,200],
+    autoplay: false,
+})
+
+const fadeOut_ToSection = () => {
 
     /* Vars */
-    const from = document.querySelector(stage)
-    const to = document.querySelector(id)
+    const from = "#section_01"
+    const to = "#section_02"
 
     /* sets */
     anime.set([to], {
@@ -37,7 +96,6 @@ const animate_ToSection = id => {
     /* Anime */
 
     animation = anime.timeline({
-        duration: 500,
         easing: "easeInOutSine",
 
         /* Callback */
@@ -54,44 +112,34 @@ const animate_ToSection = id => {
     animation
         .add({
             targets: [from],
-            translateX: "-100%",
-            opacity: 0
+            opacity: 0,
+            delay: 500
         })
         .add({
             targets: [to],
-            translateX: "0%",
             opacity: 1
         }, "-=500")
-
-
-        
         
 }
+
+
+window.addEventListener("keydown", function( e ) {
+    switch (e.code) {
+        case "ArrowLeft":
+            handleLeftMove()
+            break
+        case "ArrowRight":
+            handleRightMove()
+            break 
+    }
+})
+
+
+    const handleRightMove = () => {
+        animation_entrance_elipse2.play()
+        fadeOut_ToSection()
+
+    }
+
     
-    /* Eventos */
 
-    links.forEach(link => {
-        link.addEventListener("click", e => {
-            e.preventDefault()
-            console.log("hola")
-            const id = e.target.getAttribute("navigate-to")
-            console.log(id)
-            navigateTo(id)
-        })
-    })
-
-
-    // document.onkeydown = function ( e ) {
-    window.addEventListener("keydown", function( e ) {
-        switch (e.code) {
-            case "ArrowLeft":
-                console.log("left key")
-                break
-            case "ArrowRight":
-                console.log("right key")
-                const id = links[0].getAttribute("navigate-to")
-                console.log(id)
-                navigateTo(id)
-                break 
-        }
-    })

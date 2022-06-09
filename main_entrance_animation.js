@@ -32,6 +32,11 @@ let animation_entrance_text2 = anime({
     translateX: [-50]
 })
 
+anime.set([".poligono"], {
+    scaleX: [0.6],
+    scaleY: [0.6]
+})
+
 let animation_entrance_poligon1 = anime({
 
     targets: ".poligono-1",
