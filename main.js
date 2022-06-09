@@ -12,3 +12,5 @@ anime({
     easing: 'easeInOutExpo'
 
 });
+
+animation.anime() 
