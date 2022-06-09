@@ -1,16 +1,10 @@
 
 
+document.onkeydown = checkKey
 
+function checkKey(e) {
 
-anime({
-
-    targets: '.square',
-    translateX: 250,
-    scale: 3,
-    duration: 3000,
-    loop: true,
-    easing: 'easeInOutExpo'
-
-});
-
-animation.anime() 
+    if(e.keyCode == "38") {
+        console.log("up")
+    }
+}
