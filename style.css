@@ -31,7 +31,7 @@ body {
 }
 
 .img-container {
-  background-image: url("./media/space-galaxy-background.png");
+  background-image: url("./media/entrance-screen/space-galaxy-background.png");
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-position: center;
@@ -169,4 +169,14 @@ body {
 .poligono-12 {
   top: 8%;
   left: 50%;
+}
+
+.white-transition {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0%;
+  left: 0;
+  background-color: white;
+  visibility: hidden;
 }
