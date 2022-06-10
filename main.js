@@ -6,16 +6,7 @@
 let animation /* Init animation */
 let stage = '#section_01' /* screen on stage/ 01 per default */
 
-/* Methos / Functions */
 
-// const navigateTo = (id) => {
-
-//     animate_ToSection(id)
-
-//     animation.finished.then(()=>{
-//         stage = id
-//     })
-// }
 
 // const animate_ToSection = id => {
 
@@ -161,17 +152,6 @@ const animation_ToSection = ( from, to ) => {
             
     }
 
-    window.addEventListener("keydown", function( e ) {
-        switch (e.code) {
-            case "ArrowLeft":
-                handleLeftMove()
-                break
-            case "ArrowRight":
-                handleRightMove()
-                break 
-        }
-    })
-
     let animation_scene01 = anime.timeline({
         easing: "easeInOutSine",
         autoplay: false
@@ -258,13 +238,32 @@ const animation_ToSection = ( from, to ) => {
             targets: [".nav-modal"],
             opacity: 1
         })
-    
-    
-    
-    const handleRightMove = () => {
-        animation_entrance_elipse2.play()
-        animation_ToSection( "#section_01", "#section_02" )
-        section02tosection03()
-        animation_scene01.play()
+
+
+
+        /* Transitions onKeyPress Management */
+        let contKeyRight = 0
+
+        window.addEventListener("keydown", function( e ) {
+            switch (e.code) {
+                case "ArrowLeft":
+                    handleLeftMove()
+                    break
+                case "ArrowRight":
+                    handleRightMove()
+                    contKeyRight+=1
+                    break 
+            }
+        })
+        
+        const handleRightMove = () => {
+            if (contKeyRight<1) {
+                animation_entrance_elipse2.play()
+                animation_ToSection( "#section_01", "#section_02" )
+                section02tosection03()
+                animation_scene01.play()
+            } else if(contKeyRight<2)
+            console.log(contKeyRight)
+
     }
     
