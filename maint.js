@@ -1,43 +1,39 @@
-const animate_ToSection = id => {
+let animation_rope = anime.timeline({
+    easing: "easeInOutSine",
+    autoplay: false
+})
 
-    /* Vars */
-    const from = document.querySelector(stage)
-    const to = document.querySelector(id)
 
-    /* sets */
-    anime.set([to], {
-        visibility: "visible",
-        translateX: "100%",
+
+
+animation_rope.set([".second-screen__rope"], {
+    translateY: "-100%"
+})
+
+animation_rope.set([".second-screen__boards "], {
+    translateY: "-40%",
+    scale: "0.85",
+
+})
+
+animation_rope.set([".nav-modal2"], {
+    opacity: 0,
+})
+
+animation_rope
+    .add({
+        targets: [".second-screen__rope"],
+        translateY: "0%",
+        // delay: 3500
+    })
+    .add({
+        targets: [".second-screen__boards"],
+        translateY: "4%",
+    }, "-=1000")
+    .add({
+        targets: [".nav-modal2"],
         opacity: 1
     })
 
-    
-    /* Anime */
 
-    animation = anime.timeline({
-        easing: "easeInOutSine",
-
-        /* Callback */
-        complete() {
-            anime.set([from], {
-                visibility: "hidden",
-                opacity: 0
-            })
-        }
-    })
-
-    /* Animation  */
-
-    animation
-        .add({
-            targets: [from],
-            translateX: "-100%",
-            opacity: 0,
-            delay: 1000
-        })
-        .add({
-            targets: [to],
-            translateX: "0%",
-            opacity: 1
-        }, "-=500")       
-}
+    animation_rope.play()

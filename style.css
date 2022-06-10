@@ -417,3 +417,7 @@ a {
   right: 15.5%;
   bottom: 0%;
 }
+
+.nav-modal2 {
+  opacity: 0;
+}

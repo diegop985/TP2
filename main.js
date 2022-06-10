@@ -243,33 +243,43 @@ const animation_ToSection = ( from, to ) => {
         
 
 
-    let animation_rope = anime.timeline({
-        easing: "easeInOutSine",
-        autoplay: false
-    })
-    
-    
-    animation_rope.set([".second-screen__rope"], {
-        translateY: "-100%"
-    })
-    
-    animation_rope.set([".second-screen__boards "], {
-        translateY: "-40%",
-        scale: "0.85",
-    
-    })
-    
-    animation_rope
-        .add({
-            targets: [".second-screen__rope"],
-            translateY: "0%",
-            // delay: 3500
+        let animation_rope = anime.timeline({
+            easing: "easeInOutSine",
+            autoplay: false
         })
-        .add({
-            targets: [".second-screen__boards"],
-            translateY: "4%",
-        }, "-=1000")
-    
+        
+        
+        
+        
+        animation_rope.set([".second-screen__rope"], {
+            translateY: "-100%"
+        })
+        
+        animation_rope.set([".second-screen__boards "], {
+            translateY: "-40%",
+            scale: "0.85",
+        
+        })
+        
+        animation_rope.set([".nav-modal2"], {
+            opacity: 0,
+        })
+        
+        animation_rope
+            .add({
+                targets: [".second-screen__rope"],
+                translateY: "0%",
+                // delay: 3500
+            })
+            .add({
+                targets: [".second-screen__boards"],
+                translateY: "4%",
+            }, "-=1000")
+            .add({
+                targets: [".nav-modal2"],
+                opacity: 1
+            })
+        
         
         
 
@@ -304,8 +314,6 @@ const animation_ToSection = ( from, to ) => {
                 animation_rope.play()
                 console.log(contKeyRight)
             }
-            
-
     }
 
 
@@ -327,6 +335,7 @@ const animation_ToSection = ( from, to ) => {
     
         animation = anime.timeline({
             easing: "easeInOutSine",
+            
     
             /* Callback */
             complete() {
@@ -344,7 +353,7 @@ const animation_ToSection = ( from, to ) => {
                 targets: [from],
                 translateX: "-100%",
                 opacity: 0,
-                delay: 1000
+                delay: 500
             })
             .add({
                 targets: [to],
