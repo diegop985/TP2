@@ -8,53 +8,6 @@ let stage = '#section_01' /* screen on stage/ 01 per default */
 
 
 
-// const animate_ToSection = id => {
-
-//     /* Vars */
-//     const from = document.querySelector(stage)
-//     const to = document.querySelector(id)
-
-//     /* sets */
-//     anime.set([to], {
-//         visibility: "visible",
-//         translateX: "100%",
-//         opacity: 1
-//     })
-
-    
-//     /* Anime */
-
-//     animation = anime.timeline({
-//         easing: "easeInOutSine",
-
-//         /* Callback */
-//         complete() {
-//             anime.set([from], {
-//                 visibility: "hidden",
-//                 opacity: 0
-//             })
-//         }
-//     })
-
-//     /* Animation  */
-
-//     animation
-//         .add({
-//             targets: [from],
-//             translateX: "-100%",
-//             opacity: 0,
-//             delay: 1000
-//         })
-//         .add({
-//             targets: [to],
-//             translateX: "0%",
-//             opacity: 1
-//         }, "-=500")       
-// }
-    
-    /* Eventos */
-
-
 let animation_entrance_elipse2 = anime({
 
     targets: ".elipse-container",
@@ -239,217 +192,256 @@ const animation_ToSection = ( from, to ) => {
             opacity: 1
         })
 
-        const section03ToSection04 = () => {
+    const section03ToSection04 = () => {
 
-            /* Vars */
-            const from = "#section_03"
-            const to = "#section_04"
+        /* Vars */
+        const from = "#section_03"
+        const to = "#section_04"
+    
+        /* sets */
+        anime.set([to], {
+            visibility: "visible",
+            translateX: "100%",
+            opacity: 1
+        })
+    
         
-            /* sets */
-            anime.set([to], {
-                visibility: "visible",
-                translateX: "100%",
-                opacity: 1
-            })
-        
-            
-            /* Anime */
-        
-            animation = anime.timeline({
-                easing: "easeInOutSine",
-                
-        
-                /* Callback */
-                complete() {
-                    anime.set([from], {
-                        visibility: "hidden",
-                        opacity: 0
-                    })
-                }
-            })
-        
-            /* Animation  */
-        
-            animation
-                .add({
-                    targets: [from],
-                    translateX: "-100%",
-                    opacity: 0,
-                    delay: 500
-                })
-                .add({
-                    targets: [to],
-                    translateX: "0%",
-                    opacity: 1
-                }, "-=500")       
-        }
-
-
-        
-
-
-        let animation_rope = anime.timeline({
+        /* Anime */
+    
+        animation = anime.timeline({
             easing: "easeInOutSine",
-            autoplay: false
+            
+    
+            /* Callback */
+            complete() {
+                anime.set([from], {
+                    visibility: "hidden",
+                    opacity: 0
+                })
+            }
+        })
+    
+        /* Animation  */
+    
+        animation
+            .add({
+                targets: [from],
+                translateX: "-100%",
+                opacity: 0,
+                delay: 500
+            })
+            .add({
+                targets: [to],
+                translateX: "0%",
+                opacity: 1
+            }, "-=500")       
+    }
+
+
+        
+
+
+    let animation_rope = anime.timeline({
+        easing: "easeInOutSine",
+        autoplay: false
+    })
+    
+    
+    
+    
+    animation_rope.set([".second-screen__rope"], {
+        translateY: "-100%"
+    })
+    
+    animation_rope.set([".second-screen__boards "], {
+        translateY: "-40%",
+        scale: "0.85",
+    
+    })
+    
+    animation_rope.set([".nav-modal2"], {
+        opacity: 0,
+    })
+    
+    animation_rope
+        .add({
+            targets: [".second-screen__rope"],
+            translateY: "0%",
+            delay: 3500
+        })
+        .add({
+            targets: [".second-screen__boards"],
+            translateY: "4%",
+        }, "-=1000")
+        .add({
+            targets: [".nav-modal2"],
+            opacity: 1
+        })
+            
+            
+            
+    const animation_rope2F = () => {
+
+        let animation_rope2 = anime.timeline({
+            easing: "easeInOutSine",
+            autoplay: true
         })
         
-        
-        
-        
-        animation_rope.set([".second-screen__rope"], {
-            translateY: "-100%"
+        animation_rope2.set([".nav-modal2"], {
+            opacity: 0,
         })
         
         animation_rope.set([".second-screen__boards "], {
-            translateY: "-40%",
-            scale: "0.85",
-        
+            translateY: "4%",
         })
-        
-        animation_rope.set([".nav-modal2"], {
-            opacity: 0,
-        })
-        
-        animation_rope
-            .add({
-                targets: [".second-screen__rope"],
-                translateY: "0%",
-                delay: 3500
-            })
-            .add({
-                targets: [".second-screen__boards"],
-                translateY: "4%",
-            }, "-=1000")
-            .add({
-                targets: [".nav-modal2"],
-                opacity: 1
-            })
 
 
-            let animation_rope2 = anime.timeline({
-                easing: "easeInOutSine",
-                autoplay: false
-            })
-            
-            animation_rope2.set([".nav-modal2"], {
-                opacity: 0,
-            })
-            
-            animation_rope2
-                .add({
-                    targets: [".second-screen__boards"],
-                    translateY: "18%",
-                })
-                .add({
-                    targets: [".nav-modal2"],
-                    opacity: 1
-                })
-            
-            
-            
-            let animation_rope3 = anime.timeline({
-                    easing: "easeInOutSine",
-                    autoplay: false
-            })
-                
-            animation_rope3.set([".nav-modal2"], {
-                opacity: 0,
-            })
-            
-            animation_rope3
-                .add({
-                    targets: [".second-screen__boards"],
-                    translateY: "31%",
-                })
-                .add({
-                    targets: [".nav-modal2"],
-                    opacity: 1
-                })
-            
-            
-            
-            
-            let animation_rope4 = anime.timeline({
-                easing: "easeInOutSine",
-                autoplay: false
-            })
-            
-            animation_rope4.set([".nav-modal2"], {
-            opacity: 0,
-            })
-            
-            animation_rope4
+        
+        animation_rope2
             .add({
                 targets: [".second-screen__boards"],
-                translateY: "44%",
+                translateY: "18%",
             })
             .add({
                 targets: [".nav-modal2"],
                 opacity: 1
             })
-            
-            
-            
-            let animation_rope5 = anime.timeline({
-                easing: "easeInOutSine",
-                autoplay: false
-            })
-            
-            animation_rope5.set([".nav-modal2"], {
-            opacity: 0,
-            })
-            
-            animation_rope5
-            .add({
-                targets: [".second-screen__boards"],
-                translateY: "57%",
-            })
-            .add({
-                targets: [".nav-modal2"],
-                opacity: 1
-            })
-            
-            
-            
-            let animation_rope6 = anime.timeline({
-                easing: "easeInOutSine",
-                autoplay: false
-            })
-            
-            animation_rope6.set([".nav-modal2"], {
-            opacity: 0,
-            })
-            
-            animation_rope6
-            .add({
-                targets: [".second-screen__boards"],
-                translateY: "70%",
-            })
-            .add({
-                targets: [".nav-modal2"],
-                opacity: 1
-            })
-            
-            
-            let animation_rope7 = anime.timeline({
-                easing: "easeInOutSine",
-                autoplay: false
-            })
-            
-            animation_rope7.set([".nav-modal2"], {
-            opacity: 0,
-            })
-            
-            animation_rope7
-            .add({
-                targets: [".second-screen__boards"],
-                translateY: "83%",
-            })
-            .add({
-                targets: [".nav-modal2"],
-                opacity: 1
-            })
-            
+        
+        
+    }
+    
+    const animation_rope3F = () => {
+        let animation_rope3 = anime.timeline({
+            easing: "easeInOutSine",
+            autoplay: true
+    })
+        
+    animation_rope3.set([".nav-modal2"], {
+        opacity: 0,
+    })
+
+    animation_rope.set([".second-screen__boards "], {
+        translateY: "18%",
+    })
+    
+    animation_rope3
+        .add({
+            targets: [".second-screen__boards"],
+            translateY: "31%",
+        })
+        .add({
+            targets: [".nav-modal2"],
+            opacity: 1
+        })
+    
+    }
+    
+    
+    
+    const animation_rope4F = () => {
+        let animation_rope4 = anime.timeline({
+            easing: "easeInOutSine",
+            autoplay: true
+        })
+        
+        animation_rope4.set([".nav-modal2"], {
+        opacity: 0,
+        })
+    
+        animation_rope.set([".second-screen__boards "], {
+            translateY: "31%",
+        })
+        
+        animation_rope4
+        .add({
+            targets: [".second-screen__boards"],
+            translateY: "44%",
+        })
+        .add({
+            targets: [".nav-modal2"],
+            opacity: 1
+        })
+    }
+    
+    
+    const animation_rope5F = () => {
+        let animation_rope5 = anime.timeline({
+            easing: "easeInOutSine",
+            autoplay: true
+        })
+        
+        animation_rope5.set([".nav-modal2"], {
+        opacity: 0,
+        })
+    
+        animation_rope.set([".second-screen__boards "], {
+            translateY: "44%",
+        })
+        
+        animation_rope5
+        .add({
+            targets: [".second-screen__boards"],
+            translateY: "57%",
+        })
+        .add({
+            targets: [".nav-modal2"],
+            opacity: 1
+        })
+        
+    }
+    
+    
+    const animation_rope6F = () => {
+        let animation_rope6 = anime.timeline({
+            easing: "easeInOutSine",
+            autoplay: true
+        })
+        
+        animation_rope6.set([".nav-modal2"], {
+        opacity: 0,
+        })
+        animation_rope.set([".second-screen__boards "], {
+            translateY: "57%",
+        })
+        
+        animation_rope6
+        .add({
+            targets: [".second-screen__boards"],
+            translateY: "70%",
+        })
+        .add({
+            targets: [".nav-modal2"],
+            opacity: 1
+        })
+        
+    }
+    
+    
+    const animation_rope7F = () => {
+        let animation_rope7 = anime.timeline({
+            easing: "easeInOutSine",
+            autoplay: true
+        })
+        
+        animation_rope7.set([".nav-modal2"], {
+        opacity: 0,
+        })
+    
+        animation_rope.set([".second-screen__boards "], {
+            translateY: "70%",
+        })
+        
+        animation_rope7
+        .add({
+            targets: [".second-screen__boards"],
+            translateY: "83%",
+        })
+        .add({
+            targets: [".nav-modal2"],
+            opacity: 1
+        })
+    }
+    
         
         
         
@@ -476,7 +468,6 @@ const animation_ToSection = ( from, to ) => {
                 animation_ToSection( "#section_01", "#section_02" )
                 section02tosection03()
                 animation_scene01.play()
-                console.log(contKeyRight)
 
             } else if(contKeyRight==2) {
                 section03ToSection04()
@@ -484,24 +475,23 @@ const animation_ToSection = ( from, to ) => {
                 
                 console.log(contKeyRight)
             } else if(contKeyRight==3) {
-                animation_rope2.play()
+                animation_rope2F()
                 
                 console.log(contKeyRight)
             } else if(contKeyRight==4) {
-                animation_rope3.play()
+                animation_rope3F()
                 
                 console.log(contKeyRight)
             } else if(contKeyRight==5) {
-                animation_rope4.play()
+                animation_rope4F()
                 
                 console.log(contKeyRight)
             } else if(contKeyRight==6) {
-                animation_rope5.play()
+                animation_rope5F()
                 
                 console.log(contKeyRight)
             } else if(contKeyRight==7) {
-                animation_rope6.play()
-                console.log(contKeyRight)
+                animation_rope6F()
             }
     }
 
