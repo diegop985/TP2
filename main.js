@@ -2,10 +2,7 @@
 
 /* Variables */
 
-const links = document.querySelectorAll('a[navigate-to]') /* Links to go */
 
-console.log(links[1].getAttribute("navigate-to"))
-console.log(links[0].getAttribute("navigate-to"))
 let animation /* Init animation */
 let stage = '#section_01' /* screen on stage/ 01 per default */
 
@@ -257,6 +254,11 @@ const animation_ToSection = ( from, to ) => {
             scaleX: "0.9",
             duration: 2500
         }, "-=200")
+        .add({
+            targets: [".nav-modal"],
+            opacity: 1
+        })
+    
     
     
     const handleRightMove = () => {

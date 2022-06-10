@@ -81,6 +81,6 @@ animation_scene01
         scaleX: "0.9",
         duration: 4000
     }, "-=200")
-
+    
 
     animation_scene01.play()
