@@ -240,9 +240,41 @@ const animation_ToSection = ( from, to ) => {
         })
 
 
+        
+
+
+    let animation_rope = anime.timeline({
+        easing: "easeInOutSine",
+        autoplay: false
+    })
+    
+    
+    animation_rope.set([".second-screen__rope"], {
+        translateY: "-100%"
+    })
+    
+    animation_rope.set([".second-screen__boards "], {
+        translateY: "-40%",
+        scale: "0.85",
+    
+    })
+    
+    animation_rope
+        .add({
+            targets: [".second-screen__rope"],
+            translateY: "0%",
+            // delay: 3500
+        })
+        .add({
+            targets: [".second-screen__boards"],
+            translateY: "4%",
+        }, "-=1000")
+    
+        
+        
 
         /* Transitions onKeyPress Management */
-        let contKeyRight = 0
+        let contKeyRight = 1
 
         window.addEventListener("keydown", function( e ) {
             switch (e.code) {
@@ -257,13 +289,66 @@ const animation_ToSection = ( from, to ) => {
         })
         
         const handleRightMove = () => {
-            if (contKeyRight<1) {
+            
+            if (contKeyRight<=1) {
                 animation_entrance_elipse2.play()
                 animation_ToSection( "#section_01", "#section_02" )
                 section02tosection03()
                 animation_scene01.play()
-            } else if(contKeyRight<2)
-            console.log(contKeyRight)
+                console.log(contKeyRight)
+
+            } else if(contKeyRight==2) {
+                section03ToSection04()
+                console.log(contKeyRight)
+            } else if(contKeyRight==3) {
+                animation_rope.play()
+                console.log(contKeyRight)
+            }
+            
 
     }
+
+
+    const section03ToSection04 = () => {
+
+        /* Vars */
+        const from = "#section_03"
+        const to = "#section_04"
     
+        /* sets */
+        anime.set([to], {
+            visibility: "visible",
+            translateX: "100%",
+            opacity: 1
+        })
+    
+        
+        /* Anime */
+    
+        animation = anime.timeline({
+            easing: "easeInOutSine",
+    
+            /* Callback */
+            complete() {
+                anime.set([from], {
+                    visibility: "hidden",
+                    opacity: 0
+                })
+            }
+        })
+    
+        /* Animation  */
+    
+        animation
+            .add({
+                targets: [from],
+                translateX: "-100%",
+                opacity: 0,
+                delay: 1000
+            })
+            .add({
+                targets: [to],
+                translateX: "0%",
+                opacity: 1
+            }, "-=500")       
+    }
